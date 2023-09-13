@@ -5,6 +5,12 @@ const http = require("http");
 const server = http.createServer(app);
 const cors = require("cors");
 
+const corsOptions = {
+    origin: 'https://back-psi-brown.vercel.app',
+};
+
+app.use(cors(corsOptions));
+
 app.use(cors());
 
 const socket = require("socket.io");
