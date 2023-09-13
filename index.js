@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const cors = require("cors");
 
 const corsOptions = {
-    origin: 'https://back-psi-brown.vercel.app',
+    origin: 'http://localhost:3000',
 };
 
 app.use(cors(corsOptions));
