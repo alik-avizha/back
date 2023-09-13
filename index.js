@@ -5,7 +5,19 @@ const http = require("http");
 const server = http.createServer(app);
 const cors = require("cors");
 
-app.use(cors());
+const corsOptions = {
+    credentials: true,
+    origin: (origin, callback) => {
+        if (origin === "http://localhost:3000") {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+};
+
+
+app.use(cors(corsOptions));
 
 const socket = require("socket.io");
 const { Configuration, OpenAIApi } = require("openai");
