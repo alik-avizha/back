@@ -47,6 +47,10 @@ io.on("connection", (socket) => {
     });
 });
 
+app.get("/", (req, res) => {
+    res.send("Hello world");
+});
+
 let port = process.env.PORT || 5000
 
 server.listen(port, () => {
